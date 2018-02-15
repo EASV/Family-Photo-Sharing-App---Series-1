@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { AlbumsModule } from './albums/albums.module';
 
-
 @NgModule({
   declarations: [
     AppComponent
