@@ -5,6 +5,7 @@ import {MatButtonModule} from '@angular/material/button';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { AlbumsModule } from './albums/albums.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { AppRoutingModule } from './/app-routing.module';
     BrowserModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AlbumsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
