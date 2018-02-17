@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { AlbumsModule } from './albums/albums.module';
 import { MatSidenavModule } from '@angular/material';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MatSidenavModule } from '@angular/material';
     MatButtonModule,
     AppRoutingModule,
     AlbumsModule,
-    MatSidenavModule
+    MatSidenavModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

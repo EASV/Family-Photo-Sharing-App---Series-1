@@ -1,7 +1,12 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <mat-sidenav-container class="main-container">
-  <mat-sidenav mode="side" opened> This is the side nav </mat-sidenav>
+  <mat-sidenav mode="side" opened>
+
+  </mat-sidenav>
   <mat-sidenav-content>
-    <router-outlet></router-outlet>
+    <app-toolbar></app-toolbar>
+    <div style="margin-left: 10px">
+      <router-outlet></router-outlet>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
