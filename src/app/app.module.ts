@@ -6,7 +6,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { AlbumsModule } from './albums/albums.module';
-import { SharedModule } from './shared/shared.module';
+import { MatSidenavModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,8 @@ import { SharedModule } from './shared/shared.module';
     BrowserAnimationsModule,
     MatButtonModule,
     AppRoutingModule,
-    AlbumsModule
+    AlbumsModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]
