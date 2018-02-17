@@ -6,7 +6,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { AlbumsModule } from './albums/albums.module';
-import { MatToolbarModule } from '@angular/material';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,6 @@ import { MatToolbarModule } from '@angular/material';
     BrowserModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatToolbarModule,
     AppRoutingModule,
     AlbumsModule
   ],
