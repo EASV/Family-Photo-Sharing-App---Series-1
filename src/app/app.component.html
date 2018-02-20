@@ -3,8 +3,8 @@
   <mat-sidenav mode="side"
                [opened]="navBarOpen">
     <mat-nav-list>
-      <a mat-list-item routerLink="/"> <mat-icon style="margin-left: 5px;margin-right: 5px;">home</mat-icon> Home </a>
-      <a mat-list-item routerLink="/albums"> <mat-icon style="margin-left: 5px;margin-right: 5px;">folder</mat-icon> Albums </a>
+      <a mat-list-item routerLink="/"> <app-margin-icon [iconName]="'home'"></app-margin-icon> Home </a>
+      <a mat-list-item routerLink="/albums"> <app-margin-icon [iconName]="'folder'"></app-margin-icon> Albums </a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
