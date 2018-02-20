@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  navBarOpen = false;
+  navBarOpen = true;
 
   toggleNav() {
     this.navBarOpen = !this.navBarOpen;

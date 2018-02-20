@@ -6,7 +6,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { AlbumsModule } from './albums/albums.module';
-import { MatSidenavModule } from '@angular/material';
+import { MatIconModule, MatListModule, MatSidenavModule } from '@angular/material';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
@@ -20,7 +20,9 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     AlbumsModule,
     MatSidenavModule,
-    SharedModule
+    SharedModule,
+    MatListModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
