@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-margin-icon',
+  selector: 'fpa-margin-icon',
   templateUrl: './margin-icon.component.html',
   styleUrls: ['./margin-icon.component.css']
 })
