@@ -14,6 +14,7 @@ export class AppComponent implements OnDestroy {
     {route: '/users', title: 'Users', icon: 'event'}
   ];
   navBarOpen = true;
+  mode = 'side';
   watcher: Subscription;
   constructor(media: ObservableMedia) {
     this.watcher = media.subscribe((change: MediaChange) => {
@@ -34,10 +35,12 @@ export class AppComponent implements OnDestroy {
   }
 
   loadMobileContent() {
-    console.log('small view');
+    this.navBarOpen = false;
+    this.mode = 'over';
   }
 
   loadDashBoardContent() {
-    console.log('large view');
+    this.navBarOpen = true;
+    this.mode = 'side';
   }
 }
