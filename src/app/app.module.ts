@@ -8,6 +8,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { AlbumsModule } from './albums/albums.module';
 import { MatIconModule, MatListModule, MatSidenavModule } from '@angular/material';
 import { SharedModule } from './shared/shared.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SharedModule } from './shared/shared.module';
     MatSidenavModule,
     SharedModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
