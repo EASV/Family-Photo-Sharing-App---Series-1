@@ -8,12 +8,14 @@
       </a>
     </mat-nav-list>
   </mat-sidenav>
-  <mat-sidenav-content>
-    <fpa-toolbar (navToggle)="toggleNav()">
-
-    </fpa-toolbar>
-    <div style="margin-left: 10px">
+  <mat-sidenav-content fxLayout="column">
+    <fpa-toolbar (navToggle)="toggleNav()"></fpa-toolbar>
+    <div fxFlex>
       <router-outlet></router-outlet>
     </div>
+    <footer>
+      <hr>
+      <p>My page</p>
+    </footer>
   </mat-sidenav-content>
 </mat-sidenav-container>
