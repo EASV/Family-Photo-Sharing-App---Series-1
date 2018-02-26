@@ -6,4 +6,8 @@ export class AuthService {
 
   constructor(private fireAuth: AngularFireAuth) {
   }
+
+  login(email: string, password: string): Promise<any> {
+    return this.fireAuth.auth.signInAndRetrieveDataWithEmailAndPassword(email, password);
+  }
 }

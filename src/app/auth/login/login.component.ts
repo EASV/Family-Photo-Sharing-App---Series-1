@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { AuthService } from '../shared/auth.service';
 
 @Component({
   selector: 'fpa-login',
@@ -8,8 +9,11 @@ import { AngularFireAuth } from 'angularfire2/auth';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
+    this.authService.login('ljb@ljb.dk', '123456')
+      .then(user => console.log(user))
+      .catch(error => console.log(error));
   }
 }
