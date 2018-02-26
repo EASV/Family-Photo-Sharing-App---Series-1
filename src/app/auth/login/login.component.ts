@@ -8,11 +8,8 @@ import { AngularFireAuth } from 'angularfire2/auth';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private fireAuth: AngularFireAuth) { }
+  constructor() { }
 
   ngOnInit() {
-    this.fireAuth.auth.createUserAndRetrieveDataWithEmailAndPassword('ljb@ljb.dk', '123456')
-      .then(user => console.log(user));
   }
-
 }
