@@ -19,5 +19,10 @@ export class LoginComponent implements OnInit {
     this.authService.logout()
       .then(() => console.log('Logged Out'))
       .catch(error => console.log(error));
+
+    this.authService.isAuthenticated()
+      .subscribe(authState => console.log(authState),
+                  error2 => console.log(error2),
+                        () => console.log('complete'));
   }
 }

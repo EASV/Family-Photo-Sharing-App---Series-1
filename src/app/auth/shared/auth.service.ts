@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class AuthService {
@@ -13,5 +15,12 @@ export class AuthService {
 
   logout(): Promise<any> {
     return this.fireAuth.auth.signOut();
+  }
+
+  isAuthenticated(): Observable<boolean> {
+    return this.fireAuth.authState
+      .map(authState => {
+        return authState !== null;
+      });
   }
 }
