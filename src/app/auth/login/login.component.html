@@ -1,4 +1,4 @@
-<form [formGroup]="loginForm" novalidate>
+<form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
   <mat-form-field>
     <input matInput placeholder="E-mail" formControlName="email">
   </mat-form-field>
@@ -7,7 +7,7 @@
   </mat-form-field>
   <button mat-mini-fab
           color="accent"
-          (click)="login()">
+          type="submit">
     login
   </button>
 </form>
