@@ -7,19 +7,13 @@ import 'rxjs/add/operator/map';
 export class AuthGuard implements CanActivate {
 
   constructor(private authService: AuthService,
-              private router: Router,
-              private route: ActivatedRoute) { }
+              private router: Router) { }
 
   canActivate() {
     return this.authService.isAuthenticated()
       .map(isLoggedIn => {
         if (!isLoggedIn) {
           this.router.navigateByUrl('login');
-        } else {
-          console.log(this.route);
-          if (this.route.routeConfig.path === 'login') {
-            this.router.navigateByUrl('albums');
-          }
         }
         return isLoggedIn;
       });
