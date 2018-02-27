@@ -13,7 +13,11 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.authService.login('ljb@ljb.dk', '123456')
-      .then(user => console.log(user))
+      .then(() => console.log('Logged In'))
+      .catch(error => console.log(error));
+
+    this.authService.logout()
+      .then(() => console.log('Logged Out'))
       .catch(error => console.log(error));
   }
 }
