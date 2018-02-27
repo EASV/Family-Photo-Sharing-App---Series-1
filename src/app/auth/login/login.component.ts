@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../shared/auth.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'fpa-login',
@@ -13,7 +14,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private authService: AuthService,
               private fb: FormBuilder,
-              private snack: MatSnackBar) {
+              private snack: MatSnackBar,
+              private router: Router) {
     this.loginForm = fb.group({
       email: '',
       password: ''
@@ -30,7 +32,12 @@ export class LoginComponent implements OnInit {
   login() {
     const loginModel = this.loginForm.value;
     this.authService.login(loginModel.email, loginModel.password)
-      .then(() => console.log('Logged In'))
+      .then(() => {
+        this.router.navigateByUrl('albums')
+          .then(() => this.snack.open('Your logged in', '', {
+            duration: 2000
+          }));
+      })
       .catch(error => {
         this.snack.open(error.message, '', {
           duration: 4000
