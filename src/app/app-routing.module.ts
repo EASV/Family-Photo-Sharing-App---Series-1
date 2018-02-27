@@ -4,10 +4,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { AlbumsListComponent } from './albums/albums-list/albums-list.component';
 import { AuthModule } from './auth/auth.module';
 import { LoginComponent } from './auth/login/login.component';
+import { AuthGuard } from './auth/shared/auth-guard.service';
 
 const routes: Routes = [
-  { path: 'albums', component: AlbumsListComponent },
-  { path: 'login', component: LoginComponent }
+  { path: 'albums', component: AlbumsListComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: LoginComponent , canActivate: [AuthGuard]}
 ];
 
 @NgModule({
