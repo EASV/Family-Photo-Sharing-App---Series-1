@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AuthService } from '../shared/auth.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'fpa-login',
@@ -8,8 +9,15 @@ import { AuthService } from '../shared/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  loginForm: FormGroup;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,
+              private fb: FormBuilder) {
+    this.loginForm = fb.group({
+      email: '',
+      password: ''
+    });
+  }
 
   ngOnInit() {
     this.authService.login('ljb@ljb.dk', '123456')
@@ -21,4 +29,6 @@ export class LoginComponent implements OnInit {
                   error2 => console.log(error2),
                         () => console.log('complete'));
   }
+
+  login() {}
 }
