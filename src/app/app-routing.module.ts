@@ -6,11 +6,12 @@ import { AuthModule } from './auth/auth.module';
 import { LoginComponent } from './auth/login/login.component';
 import { AuthGuard } from './auth/shared/auth-guard.service';
 import { SignupComponent } from './auth/signup/signup.component';
+import { LoggedInGuard } from './auth/shared/logged-in.guard';
 
 const routes: Routes = [
   { path: 'albums', component: AlbumsListComponent, canActivate: [AuthGuard] },
-  { path: 'login', component: LoginComponent},
-  { path: 'signup', component: SignupComponent},
+  { path: 'login', component: LoginComponent, canActivate: [LoggedInGuard]},
+  { path: 'signup', component: SignupComponent, canActivate: [LoggedInGuard]},
 
 ];
 

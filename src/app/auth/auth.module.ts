@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatSnackBarModule } from '@angular/material';
 import { AuthGuard } from './shared/auth-guard.service';
 import { SignupComponent } from './signup/signup.component';
+import { LoggedInGuard } from './shared/logged-in.guard';
 
 @NgModule({
   imports: [
@@ -22,6 +23,6 @@ import { SignupComponent } from './signup/signup.component';
     MatSnackBarModule
   ],
   declarations: [LoginComponent, SignupComponent],
-  providers: [AuthService, AuthGuard]
+  providers: [AuthService, AuthGuard, LoggedInGuard]
 })
 export class AuthModule { }
