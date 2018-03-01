@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../shared/auth.service';
 import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
+import { matchPassword } from '../shared/password.validator';
 
 @Component({
   selector: 'fpa-signup',
@@ -20,7 +21,7 @@ export class SignupComponent implements OnInit {
     this.signupForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
-      repeatPassword: ['', [Validators.required]]
+      repeatPassword: ['', [Validators.required, matchPassword()]]
     });
   }
 

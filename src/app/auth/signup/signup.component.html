@@ -25,12 +25,21 @@
                  placeholder="Password"
                  type="password"
                  formControlName="password">
+          <mat-error *ngIf="fcErr('password', 'required')">
+            Password is required
+          </mat-error>
         </mat-form-field>
         <mat-form-field fxFlex>
           <input matInput
                  placeholder="Repeat Password"
                  type="password"
                  formControlName="repeatPassword">
+          <mat-error *ngIf="fcErr('repeatPassword', 'required')">
+            Repeat Password is required
+          </mat-error>
+          <mat-error *ngIf="fcErr('repeatPassword', 'no-match', ['required'])">
+            Repeat Password does not match password
+          </mat-error>
         </mat-form-field>
         <button mat-button
                 color="primary"
