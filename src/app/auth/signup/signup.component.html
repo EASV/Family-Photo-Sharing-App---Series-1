@@ -28,6 +28,9 @@
           <mat-error *ngIf="fcErr('password', 'required')">
             Password is required
           </mat-error>
+          <mat-error *ngIf="fcErr('password', 'minlength', ['required'])">
+            Password needs to be at least 6 characters
+          </mat-error>
         </mat-form-field>
         <mat-form-field fxFlex>
           <input matInput
@@ -43,7 +46,8 @@
         </mat-form-field>
         <button mat-button
                 color="primary"
-                type="submit">
+                type="submit"
+                [disabled]="signupForm.invalid">
           Signup
         </button>
       </form>
