@@ -13,6 +13,13 @@
           <input matInput
                  placeholder="E-mail"
                  formControlName="email">
+          <mat-error *ngIf="signupForm.get('email').hasError('required')">
+            email required
+          </mat-error>
+          <mat-error *ngIf="signupForm.get('email').hasError('email') &&
+                            !signupForm.get('email').hasError('required')">
+            email is invalid
+          </mat-error>
         </mat-form-field>
         <mat-form-field fxFlex>
           <input matInput
