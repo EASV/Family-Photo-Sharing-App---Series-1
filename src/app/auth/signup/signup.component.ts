@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { AuthService } from '../shared/auth.service';
 import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
-import { User } from '../shared/user';
 
 @Component({
   selector: 'fpa-signup',
@@ -26,8 +25,8 @@ export class SignupComponent implements OnInit {
   }
 
   signup() {
-    const model = this.signupForm.value as User;
-    this.authService.signup(model)
+    const model = this.signupForm.value;
+    this.authService.signup(model.email, model.password)
       .then(user => {
         this.router.navigateByUrl('albums')
           .then(() => {
