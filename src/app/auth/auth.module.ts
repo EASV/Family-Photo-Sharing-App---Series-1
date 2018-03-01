@@ -8,7 +8,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatSnackBarModule } from '@angular/material';
 import { AuthGuard } from './shared/auth-guard.service';
 import { SignupComponent } from './signup/signup.component';
-import { LoggedInGuard } from './shared/loggedin.guard';
 
 @NgModule({
   imports: [
