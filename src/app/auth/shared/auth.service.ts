@@ -18,7 +18,7 @@ export class AuthService {
     return this.fireAuth.auth.signOut();
   }
 
-  signup(user: User): Promise<any> {
+  signup(user: User): Promise<User> {
     return this.fireAuth.auth
       .createUserAndRetrieveDataWithEmailAndPassword(
         user.email,

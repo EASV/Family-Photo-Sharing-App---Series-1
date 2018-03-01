@@ -13,7 +13,9 @@ export class AppComponent implements OnInit, OnDestroy {
   routes = [
     {route: '/', title: 'Home', icon: 'home'},
     {route: '/albums', title: 'Albums', icon: 'folder'},
-    {route: '/login', title: 'Login', icon: 'input'}
+    {route: '/login', title: 'Login', icon: 'input'},
+    {route: '/signup', title: 'Signup', icon: 'input'}
+
   ];
   navBarOpen = true;
   mode = 'side';
