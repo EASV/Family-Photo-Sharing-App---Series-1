@@ -12,9 +12,7 @@ import { AuthService } from './auth/shared/auth.service';
 export class AppComponent implements OnInit, OnDestroy {
   routes = [
     {route: '/', title: 'Home', icon: 'home'},
-    {route: '/albums', title: 'Albums', icon: 'folder'},
-    {route: '/login', title: 'Login', icon: 'input'},
-    {route: '/signup', title: 'Signup', icon: 'input'}
+    {route: '/albums', title: 'Albums', icon: 'folder'}
 
   ];
   navBarOpen = false;

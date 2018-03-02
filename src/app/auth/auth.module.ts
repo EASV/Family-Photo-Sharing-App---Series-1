@@ -9,6 +9,7 @@ import { MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, Mat
 import { AuthGuard } from './shared/auth-guard.service';
 import { SignupComponent } from './signup/signup.component';
 import { LoggedInGuard } from './shared/logged-in.guard';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import { LoggedInGuard } from './shared/logged-in.guard';
     MatInputModule,
     MatButtonModule,
     MatCardModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    RouterModule
   ],
   declarations: [LoginComponent, SignupComponent],
   providers: [AuthService, AuthGuard, LoggedInGuard]
