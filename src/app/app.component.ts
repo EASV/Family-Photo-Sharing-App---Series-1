@@ -17,7 +17,7 @@ export class AppComponent implements OnInit, OnDestroy {
     {route: '/signup', title: 'Signup', icon: 'input'}
 
   ];
-  navBarOpen = true;
+  navBarOpen = false;
   mode = 'side';
   watcher: Subscription;
   constructor(media: ObservableMedia,
