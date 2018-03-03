@@ -47,7 +47,7 @@ export class SignupComponent implements OnInit {
       });
   }
 
-  fcErr(fc: string, ec: string, pre: string[]): boolean {
+  fcErr(fc: string, ec: string, pre?: string[]): boolean {
     if (pre && pre.length > 0) {
       for (let i = 0; i < pre.length; i++) {
         if (this.signupForm.get(fc).hasError(pre[i])) {
