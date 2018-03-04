@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../shared/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { User } from '../shared/user';
+import { User } from '../../user/shared/user';
+import { UserService } from '../../user/shared/user.service';
 
 @Component({
   selector: 'fpa-profile',
@@ -12,7 +13,7 @@ export class ProfileComponent implements OnInit {
   profileForm: FormGroup;
   user: User;
 
-  constructor(private authService: AuthService,
+  constructor(private userService: UserService,
               private fb: FormBuilder) {
     this.profileForm = fb.group({
       username: ['', [Validators.required, Validators.minLength(4)]],
@@ -23,7 +24,7 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.authService.getUser()
+    this.userService.getUser()
       .subscribe(user => this.user = user);
   }
 

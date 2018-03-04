@@ -4,7 +4,7 @@ import { AuthService } from '../shared/auth.service';
 import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
 import { matchPassword } from '../shared/password.validator';
-import { User } from '../shared/user';
+import { User } from '../../user/shared/user';
 
 @Component({
   selector: 'fpa-signup',
