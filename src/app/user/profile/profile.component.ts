@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../shared/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { User } from '../../user/shared/user';
-import { UserService } from '../../user/shared/user.service';
+import { User } from '../shared/user';
+import { UserService } from '../shared/user.service';
 
 @Component({
   selector: 'fpa-profile',
