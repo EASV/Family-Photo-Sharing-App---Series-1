@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../shared/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { User } from '../shared/user';
 
 @Component({
   selector: 'fpa-profile',
@@ -9,6 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ProfileComponent implements OnInit {
   profileForm: FormGroup;
+  user: User;
 
   constructor(private authService: AuthService,
               private fb: FormBuilder) {
@@ -21,6 +23,7 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.user = {username: 'Lars', email: 'hi@hi.dk', uid: '123'};
   }
 
   save() {}
