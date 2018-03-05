@@ -6,6 +6,7 @@ import { MatButtonModule, MatCardModule, MatFormFieldModule, MatIconModule, MatI
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { RouterModule } from '@angular/router';
     MatCardModule,
     MatSnackBarModule,
     RouterModule,
-    MatIconModule
+    MatIconModule,
+    AngularFirestoreModule
   ],
   declarations: [ProfileComponent],
   providers: [
