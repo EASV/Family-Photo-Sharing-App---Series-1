@@ -27,7 +27,13 @@ export class ProfileComponent implements OnInit {
       .subscribe(user => this.user = user);
   }
 
-  save() {}
+  save() {
+    const model = this.profileForm.value as User;
+    model.uid = this.user.uid;
+    this.userService.update(model)
+      .then(() => console.log('saved'))
+      .catch(err => console.log('error', err));
+  }
 
   fcErr(fc: string, ec: string, pre?: string[]): boolean {
     if (pre && pre.length > 0) {
