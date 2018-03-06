@@ -1,16 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from '../shared/user';
 import { UserService } from '../shared/user.service';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'fpa-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent implements OnInit, OnDestroy {
   profileForm: FormGroup;
   user: User;
+  userSub: Subscription;
 
   constructor(private userService: UserService,
               private fb: FormBuilder) {
@@ -23,8 +25,16 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userService.getUser()
-      .subscribe(user => this.user = user);
+    this.userSub = this.userService.getUser()
+      .subscribe(user => {
+        this.user = user;
+        this.profileForm.patchValue(user);
+        console.log(user);
+      });
+  }
+
+  ngOnDestroy() {
+    this.userSub.unsubscribe();
   }
 
   save() {
