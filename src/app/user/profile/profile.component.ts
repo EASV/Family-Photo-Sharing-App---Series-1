@@ -45,6 +45,14 @@ export class ProfileComponent implements OnInit, OnDestroy {
       .catch(err => console.log('error', err));
   }
 
+  unchanged(): boolean {
+    const model = this.profileForm.value as User;
+    return model.username === this.user.username &&
+        model.firstName === this.user.firstName &&
+        model.middleName === this.user.middleName &&
+        model.lastName === this.user.lastName;
+  }
+
   fcErr(fc: string, ec: string, pre?: string[]): boolean {
     if (pre && pre.length > 0) {
       for (let i = 0; i < pre.length; i++) {
