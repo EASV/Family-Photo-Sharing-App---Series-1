@@ -40,7 +40,6 @@ export class ProfileComponent implements OnInit, OnDestroy {
       .subscribe(user => {
         this.user = user;
         this.profileForm.patchValue(user);
-        console.log(user);
       });
   }
 
