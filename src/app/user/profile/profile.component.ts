@@ -3,16 +3,27 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from '../shared/user';
 import { UserService } from '../shared/user.service';
 import { Subscription } from 'rxjs/Subscription';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'fpa-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  styleUrls: ['./profile.component.css'],
+  animations: [trigger('imageHover', [
+    state('hoveringImage', style({
+      opacity: 0.3
+    })),
+    state('notHoveringImage', style({
+      opacity: 1
+    })),
+    transition('hoveringImage <=> notHoveringImage', animate('400ms ease-in'))
+  ])]
 })
 export class ProfileComponent implements OnInit, OnDestroy {
   profileForm: FormGroup;
   user: User;
   userSub: Subscription;
+  isHovering: boolean;
 
   constructor(private userService: UserService,
               private fb: FormBuilder) {
@@ -37,8 +48,8 @@ export class ProfileComponent implements OnInit, OnDestroy {
     this.userSub.unsubscribe();
   }
 
-  hovering(event) {
-    console.log('in profile comp: ', event);
+  hovering(isHovering: boolean) {
+    this.isHovering = isHovering;
   }
 
   save() {
