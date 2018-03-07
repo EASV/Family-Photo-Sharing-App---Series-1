@@ -1,21 +1,30 @@
-import { Directive, HostListener } from '@angular/core';
+import { Directive, EventEmitter, HostListener, Output } from '@angular/core';
 
 @Directive({
   selector: '[fpaUpload]'
 })
 export class UploadDirective {
 
+  @Output()
+  hovering = new EventEmitter<boolean>();
+
   constructor() { }
-  @HostListener('dragover', ['$event'])
-  onDragOver(event) {
+
+  @HostListener('dragenter', ['$event'])
+  onDragEnter(event) {
     event.preventDefault();
-    console.log('Over event; ', event);
+    this.hovering.emit(true);
   }
 
   @HostListener('dragleave', ['$event'])
   onDragLeave(event) {
     event.preventDefault();
-    console.log('Leave event; ', event);
+    this.hovering.emit(false);
+  }
+
+  @HostListener('dragover', ['$event'])
+  onDragOver(event) {
+    event.preventDefault();
   }
 
   @HostListener('drop', ['$event'])
