@@ -52,13 +52,17 @@ export class ProfileComponent implements OnInit, OnDestroy {
     this.isHovering = isHovering;
   }
 
-  changePic (event) {
+  changePic(event) {
     if (event.toState === 'hoveringImage') {
       this.img = '../../../../assets/ic_cloud_upload_black_48px.svg';
     } else {
       this.img = 'https://firebasestorage.googleapis.com/v0/b/familysharingapp-a850d.appspot.com/o/ljb.png?alt=media&token=9a40d621-fbde-40b2-847a-7bae12fb556f';
     }
     console.log('animation done, ', event);
+  }
+
+  uploadNewImage(fileList) {
+    console.log('hi: ', fileList);
   }
 
   save() {

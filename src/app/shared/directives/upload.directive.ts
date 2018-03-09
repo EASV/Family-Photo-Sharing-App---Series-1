@@ -8,6 +8,9 @@ export class UploadDirective {
   @Output()
   hovering = new EventEmitter<boolean>();
 
+  @Output()
+  dropped = new EventEmitter<FileList>();
+
   constructor() { }
 
   @HostListener('dragenter', ['$event'])
@@ -30,6 +33,6 @@ export class UploadDirective {
   @HostListener('drop', ['$event'])
   onDrop(event) {
     event.preventDefault();
-    console.log('Drop event; ', event);
+    this.dropped.emit(event.dataTransfer.files);
   }
 }
