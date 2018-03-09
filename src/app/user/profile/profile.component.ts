@@ -4,6 +4,7 @@ import { User } from '../shared/user';
 import { UserService } from '../shared/user.service';
 import { Subscription } from 'rxjs/Subscription';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'fpa-profile',
@@ -27,7 +28,8 @@ export class ProfileComponent implements OnInit, OnDestroy {
   img: string;
 
   constructor(private userService: UserService,
-              private fb: FormBuilder) {
+              private fb: FormBuilder,
+              private snack: MatSnackBar) {
     this.profileForm = fb.group({
       username: ['', [Validators.required, Validators.minLength(4)]],
       firstName: '',
@@ -62,7 +64,14 @@ export class ProfileComponent implements OnInit, OnDestroy {
   }
 
   uploadNewImage(fileList) {
-    console.log('hi: ', fileList);
+    if (fileList && fileList.length === 1 &&
+        ['image/jpeg', 'image/png'].indexOf(fileList.item(0).type) > -1) {
+      console.log(fileList.item(0));
+    } else {
+      this.snack.open('You need to drop a single png or jpeg image', null, {
+        duration: 4000
+      });
+    }
   }
 
   save() {
