@@ -2,6 +2,8 @@
   <mat-card  fxFlex="80">
     <mat-card-header>
       <img
+        matTooltipPosition = "below"
+        matTooltip="Drop new image here or click me to select"
         [@imageHover]="isHovering ? 'hoveringImage' : 'notHoveringImage'"
         fpaUpload
         (hovering)="hovering($event)"
