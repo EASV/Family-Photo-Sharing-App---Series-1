@@ -4,11 +4,13 @@ import { User } from './user';
 import { AuthService } from '../../auth/shared/auth.service';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { EmptyObservable } from 'rxjs/observable/EmptyObservable';
+import { FileService } from '../../file-system/file.service';
 
 @Injectable()
 export class UserService {
 
   constructor(private authService: AuthService,
+              private fileService: FileService,
               private afs: AngularFirestore) { }
 
   getUser(): Observable<User> {
@@ -29,6 +31,18 @@ export class UserService {
               authUser.lastName = dbUser.lastName;
             }
             return authUser;
+          });
+      });
+  }
+
+  getUserWithProfileUrl(): Observable<User> {
+    return this.getUser()
+      .switchMap(user => {
+        return this.fileService.downloadUrlProfile(user.uid)
+          .map(url => {
+            user.profileImgUrl = url;
+            console.log(user);
+            return user;
           });
       });
   }
