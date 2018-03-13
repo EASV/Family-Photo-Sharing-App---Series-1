@@ -29,6 +29,7 @@ export class UserService {
               authUser.firstName = dbUser.firstName;
               authUser.middleName = dbUser.middleName;
               authUser.lastName = dbUser.lastName;
+              authUser.img = dbUser.img;
             }
             return authUser;
           });
@@ -38,10 +39,14 @@ export class UserService {
   getUserWithProfileUrl(): Observable<User> {
     return this.getUser()
       .switchMap(user => {
+        if (!user || !user.img) {
+          return Observable.create(obs => {
+            obs.next(user);
+          });
+        }
         return this.fileService.downloadUrlProfile(user.uid)
           .map(url => {
             user.profileImgUrl = url;
-            console.log(user);
             return user;
           });
       });
