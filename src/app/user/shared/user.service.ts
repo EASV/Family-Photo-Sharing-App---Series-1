@@ -4,7 +4,7 @@ import { User } from './user';
 import { AuthService } from '../../auth/shared/auth.service';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { EmptyObservable } from 'rxjs/observable/EmptyObservable';
-import { FileService } from '../../file-system/file.service';
+import { FileService } from '../../shared/files/file.service';
 
 @Injectable()
 export class UserService {
