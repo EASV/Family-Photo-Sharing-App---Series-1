@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { File } from '../shared/file';
 
 @Component({
   selector: 'fpa-file-details',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FileDetailsComponent implements OnInit {
 
+  @Input()
+  file: File;
   constructor() { }
 
   ngOnInit() {
