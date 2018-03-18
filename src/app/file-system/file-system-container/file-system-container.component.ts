@@ -25,4 +25,7 @@ export class FileSystemContainerComponent implements OnInit {
   ngOnInit() {
   }
 
+  deleteImage() {
+    console.log('delete the image');
+  }
 }
