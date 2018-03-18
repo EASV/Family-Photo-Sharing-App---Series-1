@@ -1,2 +1,5 @@
-<fpa-file-details [file]="file" [url]="url" (imageDeleted)="deleteImage()"></fpa-file-details>
-<fpa-folder-details [folders]="folders" [files]="files"></fpa-folder-details>
+<div fxLayout="row">
+  <fpa-file-system-column [column]="column"
+                          *ngFor="let column of this.columns">
+  </fpa-file-system-column>
+</div>

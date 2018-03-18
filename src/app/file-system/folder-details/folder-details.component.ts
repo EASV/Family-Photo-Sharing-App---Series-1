@@ -13,6 +13,8 @@ export class FolderDetailsComponent implements OnInit {
   folders: Folder[];
   @Input()
   files: File[];
+  @Input()
+  displayName: string;
   @Output()
   clickedFolder = new EventEmitter<Folder>();
   @Output()
