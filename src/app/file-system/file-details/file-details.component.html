@@ -7,8 +7,13 @@
     </mat-card-header>
      <mat-card-content>
        <div>
-         <img  [style.max-width]="'100%'"
+         <img  (load)="srcLoaded = true"
+               [hidden]="!srcLoaded"
+               [style.max-width]="'100%'"
                [src] ="url">
+         <mat-spinner
+           [style.max-width]="'100%'"
+           *ngIf="!srcLoaded"></mat-spinner>
        </div>
        <mat-list dense
                  fxFlex="40"

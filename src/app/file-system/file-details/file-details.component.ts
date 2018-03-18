@@ -12,6 +12,7 @@ export class FileDetailsComponent implements OnInit {
   file: File;
   @Input()
   url: string;
+  srcLoaded: boolean;
   constructor() {}
 
   ngOnInit() {
