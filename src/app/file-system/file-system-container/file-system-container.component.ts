@@ -9,6 +9,7 @@ import { File } from '../shared/file';
 export class FileSystemContainerComponent implements OnInit {
 
   file: File;
+  url: string;
   constructor() {
     this.file = {
       displayName: 'Funny day at the Beach',
@@ -18,6 +19,7 @@ export class FileSystemContainerComponent implements OnInit {
       owner: 'dsldjfknsdlnkflds',
       size: 10293
     };
+    this.url = 'https://material.angular.io/assets/img/examples/shiba2.jpg';
   }
 
   ngOnInit() {
