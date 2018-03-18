@@ -4,8 +4,6 @@ import { FileDetailsComponent } from './file-details/file-details.component';
 import { FileSystemContainerComponent } from './file-system-container/file-system-container.component';
 import { MatButtonModule, MatCardModule, MatIconModule, MatListModule, MatProgressSpinnerModule, MatSpinner } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { SharedModule } from '../shared/shared.module';
-import { FolderDetailsComponent } from './folder-details/folder-details.component';
 
 @NgModule({
   imports: [
@@ -17,7 +15,7 @@ import { FolderDetailsComponent } from './folder-details/folder-details.componen
     MatIconModule,
     MatProgressSpinnerModule
   ],
-  declarations: [FileDetailsComponent, FileSystemContainerComponent, FolderDetailsComponent],
+  declarations: [FileDetailsComponent, FileSystemContainerComponent],
   providers: [],
   exports: [FileSystemContainerComponent]
 })
