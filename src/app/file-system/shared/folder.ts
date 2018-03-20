@@ -1,4 +1,5 @@
  export interface Folder {
+  uid: string;
   name: string;
   owner?: string;
   files?: [{

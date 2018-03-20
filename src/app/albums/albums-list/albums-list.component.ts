@@ -15,14 +15,14 @@ export class AlbumsListComponent implements OnInit {
 
   ngOnInit() {
     const folders = [
-      {name: 'Summer 2017'},
-      {name: 'Winter 2017'},
-      {name: 'Spring 2017'}
+      {name: 'Summer 2017', uid: '123'},
+      {name: 'Winter 2017', uid: '123'},
+      {name: 'Spring 2017', uid: '123'}
     ];
     const files = [
-      {fileName: 'Great1.jpg', displayName: 'Great Day At the Beach1', created: '2017-10-10', mimeType: 'jpg', size: 1122},
-      {fileName: 'Great2.jpg', displayName: 'Great Day At the Beach2', created: '2017-10-11', mimeType: 'jpg', size: 132},
-      {fileName: 'Great3.jpg', displayName: 'Great Day At the Beach3', created: '2017-10-12', mimeType: 'jpg', size: 112}
+      {fileName: 'Great1.jpg', displayName: 'Great Day At the Beach1', created: '2017-10-10', mimeType: 'jpg', size: 1122, uid: '123'},
+      {fileName: 'Great2.jpg', displayName: 'Great Day At the Beach2', created: '2017-10-11', mimeType: 'jpg', size: 132, uid: '123'},
+      {fileName: 'Great3.jpg', displayName: 'Great Day At the Beach3', created: '2017-10-12', mimeType: 'jpg', size: 112, uid: '123'}
     ];
     const folderColumn: FolderColumn = {
       displayName: 'FolderOne',
@@ -32,7 +32,7 @@ export class AlbumsListComponent implements OnInit {
     this.columns.push(folderColumn);
 
     const files2 = [
-      {fileName: 'Great1.jpg', displayName: 'Funny day at the beach', created: '2017-10-10', mimeType: 'jpg', size: 1122}
+      {fileName: 'Great1.jpg', displayName: 'Funny day at the beach', created: '2017-10-10', mimeType: 'jpg', size: 1122, uid: '123'}
     ];
 
     const folders2 = [
@@ -52,7 +52,8 @@ export class AlbumsListComponent implements OnInit {
       created: '10-10-2017',
       mimeType: 'jpg',
       owner: 'dsldjfknsdlnkflds',
-      size: 10293
+      size: 10293,
+      uid: '123'
     };
     const url = 'https://material.angular.io/assets/img/examples/shiba2.jpg';
     const fileColumn1: FileColumn = {
