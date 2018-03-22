@@ -30,6 +30,7 @@ export class UserService {
               authUser.middleName = dbUser.middleName;
               authUser.lastName = dbUser.lastName;
               authUser.img = dbUser.img;
+              authUser.rootFolder = dbUser.rootFolder;
             }
             return authUser;
           });
