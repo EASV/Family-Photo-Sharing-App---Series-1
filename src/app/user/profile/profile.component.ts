@@ -5,7 +5,7 @@ import { UserService } from '../shared/user.service';
 import { Subscription } from 'rxjs/Subscription';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { MatSnackBar } from '@angular/material';
-import { FileService } from '../../shared/storage/file.service';
+import { FileStorageService } from '../../shared/storage/file-storage.service';
 
 @Component({
   selector: 'fpa-profile',
@@ -30,7 +30,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   srcLoaded: boolean;
 
   constructor(private userService: UserService,
-              private fileService: FileService,
+              private fileStorageService: FileStorageService,
               private fb: FormBuilder,
               private snack: MatSnackBar) {
     this.profileForm = fb.group({
@@ -68,7 +68,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
       this.srcLoaded = false;
       const file = fileList.item(0);
       const path = 'profile-images/' + this.user.uid;
-      this.fileService.upload(path, file).downloadUrl.subscribe(
+      this.fileStorageService.upload(path, file).downloadUrl.subscribe(
         url => {
           this.img = url;
           this.user.img = true;
