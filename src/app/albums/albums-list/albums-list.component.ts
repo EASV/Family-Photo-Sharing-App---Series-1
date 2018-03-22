@@ -23,15 +23,25 @@ export class AlbumsListComponent implements OnInit {
         return this.folderService.getFolder(user.rootFolder);
       }
     ).first().subscribe(folder => {
+      this.addFolder(folder);
+    });
+  }
+
+  folderClicked(folder) {
+    this.folderService.getFolder(folder.uid)
+      .first().subscribe(folderDb => {
+      this.addFolder(folderDb);
+    });
+  }
+
+  addFolder(folder: Folder) {
+    if (folder) {
       const folderColumn: FolderColumn = {
         displayName: folder.name,
         main: folder
       };
       this.columns.push(folderColumn);
-    });
-  }
+    }
 
-  folderClicked(folder) {
-    console.log('clicked folder: ', folder);
   }
 }

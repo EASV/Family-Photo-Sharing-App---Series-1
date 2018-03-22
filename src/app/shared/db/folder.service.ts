@@ -11,7 +11,9 @@ export class FolderService {
   getFolder(uid: string): Observable<Folder> {
     return this.afs.doc<Folder>('folders/' + uid).valueChanges()
       .map(folder => {
-        folder.uid = uid;
+        if (folder) {
+          folder.uid = uid;
+        }
         return folder;
       });
   }
