@@ -36,6 +36,10 @@ export class AlbumsListComponent implements OnInit {
 
   addFolder(folder: Folder) {
     if (folder) {
+      const index = this.columns.findIndex(column => (column as FolderColumn).main.uid === folder.uid);
+      if (index !== -1) {
+        this.columns.splice(index);
+      }
       const folderColumn: FolderColumn = {
         displayName: folder.name,
         main: folder
