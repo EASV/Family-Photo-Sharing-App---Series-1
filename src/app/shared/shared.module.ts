@@ -5,8 +5,10 @@ import { MatButtonModule, MatIconModule, MatToolbarModule } from '@angular/mater
 import { MarginIconComponent } from './margin-icon/margin-icon.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { UploadDirective } from './directives/upload.directive';
-import { FileService } from './files/file.service';
+import { FileService } from './storage/file.service';
 import { AngularFireStorageModule } from 'angularfire2/storage';
+import { FolderService } from './db/folder.service';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 
 @NgModule({
   imports: [
@@ -15,10 +17,11 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
     MatButtonModule,
     MatIconModule,
     FlexLayoutModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    AngularFirestoreModule
   ],
   declarations: [ToolbarComponent, MarginIconComponent, UploadDirective],
   exports: [ToolbarComponent, MarginIconComponent, UploadDirective],
-  providers: [FileService]
+  providers: [FileService, FolderService]
 })
 export class SharedModule { }
