@@ -15,6 +15,8 @@ export class FileSystemContainerComponent implements OnInit {
   columns: Column[] = [];
   @Output()
   clickedFolder = new EventEmitter<Folder>();
+  @Output()
+  clickedFile = new EventEmitter<File>();
   constructor() {}
 
   ngOnInit() {

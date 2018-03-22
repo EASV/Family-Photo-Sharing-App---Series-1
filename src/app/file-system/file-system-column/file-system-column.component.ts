@@ -15,6 +15,8 @@ export class FileSystemColumnComponent implements OnInit {
   column: Column;
   @Output()
   clickedFolder = new EventEmitter<Folder>();
+  @Output()
+  clickedFile = new EventEmitter<File>();
   folderColumn: FolderColumn;
   fileColumn: FileColumn;
 

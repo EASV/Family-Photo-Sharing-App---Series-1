@@ -1,6 +1,7 @@
 <div fxLayout="row">
   <fpa-file-system-column [column]="column"
                           (clickedFolder)="clickedFolder.emit($event)"
+                          (clickedFile)="clickedFile.emit($event)"
                           *ngFor="let column of this.columns">
   </fpa-file-system-column>
 </div>

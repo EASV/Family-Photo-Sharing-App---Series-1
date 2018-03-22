@@ -6,6 +6,8 @@ import { Folder } from '../../file-system/shared/folder';
 import { UserService } from '../../user/shared/user.service';
 import { FolderService } from '../../shared/db/folder.service';
 import 'rxjs/add/operator/first';
+import { File } from '../../file-system/shared/file';
+import { FileService } from '../../shared/db/file.service';
 
 @Component({
   selector: 'fpa-albums-list',
@@ -16,7 +18,8 @@ export class AlbumsListComponent implements OnInit {
   columns: Column[] = [];
 
   constructor(private userService: UserService,
-              private folderService: FolderService) { }
+              private folderService: FolderService,
+              private fileService: FileService) { }
 
   ngOnInit() {
     this.userService.getUser().switchMap(user => {
@@ -27,7 +30,7 @@ export class AlbumsListComponent implements OnInit {
     });
   }
 
-  folderClicked(folder) {
+  folderClicked(folder: Folder) {
     this.folderService.getFolder(folder.uid)
       .first().subscribe(folderDb => {
       this.addFolder(folderDb);
@@ -45,6 +48,21 @@ export class AlbumsListComponent implements OnInit {
         main: folder
       };
       this.columns.push(folderColumn);
+    }
+
+  }
+
+  fileClicked(file: File) {
+    if (file) {
+      this.fileService.getFile(file.uid)
+        .first().subscribe(fileDb => {
+        const fileColumn: FileColumn = {
+          displayName: fileDb.displayName,
+          file: fileDb,
+          url: 'http://i.imgur.com/YbL08jU.jpg'
+        };
+        this.columns.push(fileColumn);
+      });
     }
 
   }

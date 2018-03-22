@@ -2,6 +2,7 @@
   <div fxFill>
     <fpa-folder-details
       (clickedFolder)="clickedFolder.emit($event)"
+      (clickedFile)="clickedFile.emit($event)"
       [folders]="folderColumn.main.subFolders"
       *ngIf="folderColumn"
       [files]="folderColumn.main.files"

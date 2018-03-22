@@ -9,6 +9,7 @@ import { FileStorageService } from './storage/file-storage.service';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 import { FolderService } from './db/folder.service';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { FileService } from './db/file.service';
 
 @NgModule({
   imports: [
@@ -22,6 +23,6 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
   ],
   declarations: [ToolbarComponent, MarginIconComponent, UploadDirective],
   exports: [ToolbarComponent, MarginIconComponent, UploadDirective],
-  providers: [FileStorageService, FolderService]
+  providers: [FileStorageService, FolderService, FileService]
 })
 export class SharedModule { }
