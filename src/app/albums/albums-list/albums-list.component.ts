@@ -37,12 +37,32 @@ export class AlbumsListComponent implements OnInit {
     });
   }
 
+  rebuildFolders(uid: string) {
+    const index = this.columns.findIndex(column => {
+      if ((column as FolderColumn).main) {
+        const folderColumn = column as FolderColumn;
+        if (folderColumn.main.subFolders) {
+          const folderFound = folderColumn.main.subFolders.find(folder => folder.uid === uid);
+          if (folderFound) {
+            return true;
+          }
+        }
+        if (folderColumn.main.files) {
+          const fileFound = folderColumn.main.files.find(file => file.uid === uid);
+          if (fileFound) {
+            return true;
+          }
+        }
+      }
+    });
+    if (index !== -1) {
+      this.columns.splice(index + 1);
+    }
+  }
+
   addFolder(folder: Folder) {
     if (folder) {
-      const index = this.columns.findIndex(column => (column as FolderColumn).main.uid === folder.uid);
-      if (index !== -1) {
-        this.columns.splice(index);
-      }
+      this.rebuildFolders (folder.uid);
       const folderColumn: FolderColumn = {
         displayName: folder.name,
         main: folder
@@ -56,6 +76,7 @@ export class AlbumsListComponent implements OnInit {
     if (file) {
       this.fileService.getFile(file.uid)
         .first().subscribe(fileDb => {
+        this.rebuildFolders (fileDb.uid);
         const fileColumn: FileColumn = {
           displayName: fileDb.displayName,
           file: fileDb,
