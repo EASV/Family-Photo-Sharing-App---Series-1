@@ -61,6 +61,8 @@ export class AlbumsListComponent implements OnInit {
   }
 
   addFolder(folder: Folder) {
+    debugger;
+
     if (folder) {
       this.rebuildFolders (folder.uid);
       const folderColumn: FolderColumn = {
