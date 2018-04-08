@@ -3,9 +3,11 @@
     <fpa-folder-details
       (clickedFolder)="clickedFolder.emit($event)"
       (clickedFile)="clickedFile.emit($event)"
-      [folders]="folderColumn.main.subFolders"
+      (addFolder)="addFolder.emit($event)"
+      (uploadFileToFolder)="uploadFileToFolder.emit($event)"
+      (deleteFolder)="deleteFolder.emit($event)"
+      [main]="folderColumn.main"
       *ngIf="folderColumn"
-      [files]="folderColumn.main.files"
       [displayName]="folderColumn.displayName"></fpa-folder-details>
     <fpa-file-details
       [file]="fileColumn.file"

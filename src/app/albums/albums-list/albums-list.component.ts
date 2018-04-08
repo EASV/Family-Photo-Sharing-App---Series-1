@@ -37,6 +37,18 @@ export class AlbumsListComponent implements OnInit {
     });
   }
 
+  folderDeleted(folder: Folder) {
+    debugger;
+  }
+
+  addFolderToFolder(folder: Folder) {
+    debugger;
+  }
+
+  uploadFileToFolder(folder: Folder) {
+    debugger;
+  }
+
   rebuildFolders(uid: string) {
     const index = this.columns.findIndex(column => {
       if (column instanceof FolderColumn) {
