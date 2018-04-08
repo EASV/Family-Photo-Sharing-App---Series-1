@@ -39,7 +39,8 @@ export class AlbumsListComponent implements OnInit {
 
   rebuildFolders(uid: string) {
     const index = this.columns.findIndex(column => {
-      if ((column as FolderColumn).main) {
+      if (column instanceof FolderColumn) {
+        debugger;
         const folderColumn = column as FolderColumn;
         if (folderColumn.main.subFolders) {
           const folderFound = folderColumn.main.subFolders.find(folder => folder.uid === uid);
@@ -61,14 +62,11 @@ export class AlbumsListComponent implements OnInit {
   }
 
   addFolder(folder: Folder) {
-    debugger;
-
     if (folder) {
       this.rebuildFolders (folder.uid);
-      const folderColumn: FolderColumn = {
-        displayName: folder.name,
-        main: folder
-      };
+      const folderColumn = new FolderColumn();
+      folderColumn.main = folder;
+      folderColumn.displayName = folder.name;
       this.columns.push(folderColumn);
     }
 

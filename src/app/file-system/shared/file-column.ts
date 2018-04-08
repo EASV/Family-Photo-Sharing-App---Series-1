@@ -1,7 +1,8 @@
 import { File } from './file';
 import { Column } from './column';
 
-export interface FileColumn extends Column {
+export class FileColumn implements Column {
+  displayName: string;
   file: File;
   url: string;
 }
