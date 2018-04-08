@@ -40,7 +40,6 @@ export class AlbumsListComponent implements OnInit {
   rebuildFolders(uid: string) {
     const index = this.columns.findIndex(column => {
       if (column instanceof FolderColumn) {
-        debugger;
         const folderColumn = column as FolderColumn;
         if (folderColumn.main.subFolders) {
           const folderFound = folderColumn.main.subFolders.find(folder => folder.uid === uid);
@@ -64,9 +63,7 @@ export class AlbumsListComponent implements OnInit {
   addFolder(folder: Folder) {
     if (folder) {
       this.rebuildFolders (folder.uid);
-      const folderColumn = new FolderColumn();
-      folderColumn.main = folder;
-      folderColumn.displayName = folder.name;
+      const folderColumn = new FolderColumn(folder);
       this.columns.push(folderColumn);
     }
 
@@ -77,11 +74,11 @@ export class AlbumsListComponent implements OnInit {
       this.fileService.getFile(file.uid)
         .first().subscribe(fileDb => {
         this.rebuildFolders (fileDb.uid);
-        const fileColumn: FileColumn = {
-          displayName: fileDb.displayName,
-          file: fileDb,
-          url: 'http://i.imgur.com/YbL08jU.jpg'
-        };
+        const fileColumn = new FileColumn(
+          fileDb.displayName,
+          fileDb,
+          'http://i.imgur.com/YbL08jU.jpg'
+        );
         this.columns.push(fileColumn);
       });
     }
