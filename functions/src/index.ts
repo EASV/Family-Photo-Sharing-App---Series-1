@@ -7,5 +7,7 @@ import * as functions from 'firebase-functions';
 //  response.send("Hello from Firebase!");
 // });
 exports.uploadedFileToStorage = functions.storage.object().onFinalize(event => {
-  console.log('something was uploaded: ', event);
+  if(event.name.indexOf('album-files') > -1) {
+    console.log('something was uploaded: ', event);
+  }
 });

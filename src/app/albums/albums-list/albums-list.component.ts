@@ -53,10 +53,7 @@ export class AlbumsListComponent implements OnInit {
       //Upload meta data for file
        //Upload folder information
 
-    //-------------- Option two ----------------
-    //Upload File
-    // --- Firebase Functions handles meta data for file
-    // --- Firebase Functions handles folder information
+    //Firebase Functions generate a Thumbnail
     debugger;
   }
 
