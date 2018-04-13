@@ -48,6 +48,15 @@ export class AlbumsListComponent implements OnInit {
   uploadFileToFolder(uploadInfo: any) {
     const file = uploadInfo.fileEvent.target.files[0];
     //Upload to firebase
+    //-------------- Option one ----------------
+    //upload file - Observable/SwitchMap
+      //Upload meta data for file
+       //Upload folder information
+
+    //-------------- Option two ----------------
+    //Upload File
+    // --- Firebase Functions handles meta data for file
+    // --- Firebase Functions handles folder information
     debugger;
   }
 
