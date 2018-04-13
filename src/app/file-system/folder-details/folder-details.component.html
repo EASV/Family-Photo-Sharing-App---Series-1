@@ -1,17 +1,37 @@
-<mat-card fxLayout="column" fxFill>
+<mat-card fxLayout="column"
+          fxFill>
   <mat-card-header fxLayout="column">
-    <div fxLayout="row" fxFlex="100" >
-      <span fxLayout="column" fxLayoutAlign="center" fxFlex="100" style="font-size: 14px">{{displayName}}</span>
-      <span fxLayout="row"  fxLayoutAlign="end">
-        <button mat-icon-button (click)="deleteFolder.emit(main)">
+    <div fxLayout="row"
+         fxFlex="100" >
+      <span fxLayout="column"
+            fxLayoutAlign="center"
+            fxFlex="100"
+            style="font-size: 14px">{{displayName}}</span>
+      <span fxLayout="row"
+            fxLayoutAlign="end">
+        <button mat-icon-button
+                (click)="deleteFolder.emit(main)">
           <mat-icon color="warn">delete</mat-icon>
         </button>
-        <button mat-icon-button (click)="addFolder.emit(main)">
+        <button mat-icon-button
+                (click)="addFolder.emit(main)">
           <mat-icon>create_new_folder</mat-icon>
         </button>
-        <button mat-icon-button (click)="uploadFileToFolder.emit(main)">
-          <mat-icon color="primary">file_upload</mat-icon>
-        </button>
+
+        <label for="upload-input"
+                style="margin-top:4px;margin-left: 4px;cursor: pointer">
+          <mat-icon color="primary"
+                    style="font-size: 14px;">file_upload
+          </mat-icon>
+        </label>
+
+        <input id="upload-input"
+               name="upload-input"
+               type="file"
+               (change)="uploadFileToFolder.emit({folder: main, fileEvent: $event})"
+               mat-icon-button
+               style="display: none;">
+
       </span>
     </div>
     <div fxLayout="row">
@@ -40,7 +60,10 @@
           <p mat-line> {{file.created | date}} </p>
         </mat-list-item>
       </div>
-      <h4  *ngIf="!files && !folders">No folders or files yet</h4>
+      <h4
+        *ngIf="!files && !folders">
+        No folders or files yet
+      </h4>
     </mat-nav-list>
   </mat-card-content>
 </mat-card>

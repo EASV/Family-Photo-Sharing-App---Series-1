@@ -45,7 +45,9 @@ export class AlbumsListComponent implements OnInit {
     debugger;
   }
 
-  uploadFileToFolder(folder: Folder) {
+  uploadFileToFolder(uploadInfo: any) {
+    const file = uploadInfo.fileEvent.target.files[0];
+    //Upload to firebase
     debugger;
   }
 
