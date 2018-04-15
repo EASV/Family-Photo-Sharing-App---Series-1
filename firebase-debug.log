@@ -1,0 +1,17 @@
+[debug] [2018-04-15T20:58:48.829Z] ----------------------------------------------------------------------
+[debug] [2018-04-15T20:58:48.831Z] Command:       /Users/lbilde/.nvm/v8.9.4/bin/node /Users/lbilde/.nvm/v8.9.4/bin/firebase deploy --only functions
+[debug] [2018-04-15T20:58:48.831Z] CLI Version:   3.18.4
+[debug] [2018-04-15T20:58:48.831Z] Platform:      darwin
+[debug] [2018-04-15T20:58:48.831Z] Node Version:  v8.9.4
+[debug] [2018-04-15T20:58:48.832Z] Time:          Sun Apr 15 2018 22:58:48 GMT+0200 (CEST)
+[debug] [2018-04-15T20:58:48.832Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-04-15T20:58:48.840Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-04-15T20:58:48.840Z] > authorizing via signed-in user
+[debug] [2018-04-15T20:58:48.841Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/familysharingapp-a850d  
+  
+ Sun Apr 15 2018 22:58:48 GMT+0200 (CEST)
+[debug] [2018-04-15T20:58:49.587Z] <<< HTTP RESPONSE 200
+[debug] [2018-04-15T20:58:49.588Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/familysharingapp-a850d/tokens  
+  
+ Sun Apr 15 2018 22:58:49 GMT+0200 (CEST)
